@@ -1,0 +1,96 @@
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">Colaboradores
+            <span class="text-muted pt-2 font-size-sm d-block">Listado completos de todos los colaboradores</span></h3>
+        </div>
+        <div class="card-toolbar">
+            <!--begin::Button-->
+            
+            <button class="btn btn-primary" [routerLink]="['/colaborador/create']">Nuevo Colaborador</button>
+            <!--end::Button-->
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin: Search Form-->
+       
+        <div class="mb-7" >
+            <div class="row align-items-center">
+                <div class="col-lg-9 col-xl-8">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 my-2 my-md-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Escribe aqui">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" (click)="search()"><i class="pi pi-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+               
+                <div class="table-responsive">
+                    <table class="table table-head-custom table-head-bg table-borderless table-vertical-center">
+                        <thead>
+                            <tr class="text-left text-uppercase">
+                                <th style="min-width: 250px" class="pl-7">
+                                    <span class="text-dark-75">Nombres</span>
+                                </th>
+                                <th style="min-width: 100px">Correo</th>
+                                <th style="min-width: 100px">Estado</th>
+                                <th style="min-width: 100px">Cargo</th>
+                         
+                                <th style="min-width: 80px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let colaborador of colaboradores">
+                                <td class="pl-0 py-8">
+                                    <div class="d-flex align-items-center">
+                                        <div class="symbol symbol-40 flex-shrink-0 symbol-success mr-3">
+                                            <div class="symbol-label">{{colaborador.nombres | slice:0:1}}</div>								
+                                        </div>
+                                        <div>
+                                            <a class="text-primary font-weight-bolder text-hover-primary mb-1 font-size-lg">
+                                              {{colaborador?.nombres}} {{colaborador.apellidos}}
+                                            </a>
+                                            <span class="text-muted font-weight-bold d-block">#_id</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{colaborador.email}}</span>
+                                    <span class="text-muted font-weight-bold">Correo</span>
+                                </td>
+                                <td>
+                                    <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{colaborador.estado}}</span>
+                                    <span class="text-muted font-weight-bold">Estado</span>
+                                </td>
+                                <td>
+                                    <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{colaborador.rol}}</span>
+                                    <span class="text-muted font-weight-bold">Rol</span>
+                                </td>
+                        
+                                
+                                <td class="pr-0 text-left">
+                                    
+                                    <button pButton class="p-button-warning"><i class="pi pi-pencil" style = "color:black"></i></button>
+                                    
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</div>
